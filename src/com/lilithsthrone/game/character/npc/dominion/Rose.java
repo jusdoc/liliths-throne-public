@@ -288,14 +288,6 @@ public class Rose extends NPC {
 		if(Main.sex.getSexManager() instanceof SMRoseHands) {
 			return super.calculateSexTypeWeighting(type, target, request, lustOrArousalCalculation);
 		}
-		
-		if(target.isPlayer() && type.getPerformingSexArea()!=null && type.getPerformingSexArea().isOrifice()) { // Do not get penetrated:
-			return -10_000;
-		}
-		
-		if(type.getAsParticipant()==SexParticipantType.SELF && type.isTakesVirginity()) { // Do not lose virginity:
-			return -10_000;
-		}
 
 		return super.calculateSexTypeWeighting(type, target, request, lustOrArousalCalculation);
 	}
