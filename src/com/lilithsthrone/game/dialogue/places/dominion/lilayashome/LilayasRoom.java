@@ -363,25 +363,15 @@ public class LilayasRoom {
 								Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexSlotLyingDown.LYING_DOWN))) {
 							@Override
 							public boolean isPositionChangingAllowed(GameCharacter character) {
-								return false;
+								return true;
 							}
 							@Override
 							public boolean isAbleToRemoveSelfClothing(GameCharacter character) {
-								return !character.isPlayer();
+								return character.isPlayer();
 							}
 							@Override
 							public  boolean isAbleToRemoveOthersClothing(GameCharacter character, AbstractClothing clothing) {
-								return !character.isPlayer();
-							}
-							@Override
-							public Map<GameCharacter, List<SexAreaInterface>> getAreasBannedMap() {
-								return Util.newHashMapOfValues(
-										new Value<>(
-												Main.game.getNpc(Rose.class),
-												Util.newArrayListOfValues(
-														SexAreaOrifice.VAGINA,
-														SexAreaOrifice.ANUS,
-														SexAreaOrifice.MOUTH)));
+								return character.isPlayer();
 							}
 						},
 						null,
